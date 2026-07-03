@@ -1,0 +1,17 @@
+name: mobile
+description: App de Reserva Santos e Schein
+publish_to: 'none'
+version: 1.0.0+1
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  get_it: ^7.6.4
+  dio: ^5.3.3
+  google_fonts: ^6.1.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
