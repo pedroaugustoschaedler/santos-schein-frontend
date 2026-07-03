@@ -9,9 +9,9 @@ final sl = GetIt.instance;
 void setupDependencies() {
   // Configure Dio Client
   final dio = Dio(BaseOptions(
-    baseUrl: 'http://10.9.5.28:8080',
-    connectTimeout: const Duration(seconds: 5),
-    receiveTimeout: const Duration(seconds: 5),
+    baseUrl: 'https://santos-schein-api.onrender.com',
+    connectTimeout: const Duration(seconds: 15),
+    receiveTimeout: const Duration(seconds: 15),
   ));
   sl.registerLazySingleton<Dio>(() => dio);
 
