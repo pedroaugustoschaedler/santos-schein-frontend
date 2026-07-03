@@ -411,13 +411,6 @@ class _AgendaScreenState extends State<AgendaScreen> {
                       ],
                     ),
                   ),
-                  Row(
-                    children: [
-                      _buildViewToggle("Semana", true),
-                      const SizedBox(width: 6),
-                      _buildViewToggle("Dia", false),
-                    ],
-                  )
                 ],
               ),
               const SizedBox(height: 12),
@@ -568,28 +561,7 @@ class _AgendaScreenState extends State<AgendaScreen> {
     );
   }
 
-  Widget _buildViewToggle(String label, bool isActive) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 200),
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
-      decoration: BoxDecoration(
-        color: isActive ? AppTheme.accentColor.withValues(alpha: 0.15) : Colors.transparent,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: isActive ? AppTheme.accentColor : Colors.white24,
-          width: 1,
-        ),
-      ),
-      child: Text(
-        label,
-        style: TextStyle(
-          color: isActive ? AppTheme.accentColor : Colors.white38,
-          fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
-          fontSize: 12,
-        ),
-      ),
-    );
-  }
+
 
   Widget _buildCell(TimeSlot? slot, Map<String, String> dayData) {
     final height = 76.0;
