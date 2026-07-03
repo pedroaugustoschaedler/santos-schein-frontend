@@ -9,6 +9,7 @@ class ApiReservationRepository implements IReservationRepository {
 
   ApiReservationRepository(this._dio);
 
+  /// Busca todas as quadras disponíveis
   @override
   Future<List<CourtEntity>> getCourts() async {
     try {
@@ -23,9 +24,11 @@ class ApiReservationRepository implements IReservationRepository {
     }
   }
 
+  /// Busca os slots de horários disponíveis para uma quadra na semana
   @override
   Future<List<TimeSlot>> getAvailableSlots(String courtId, DateTime date) async {
     try {
+      // Formata a data para yyyy-MM-dd
       final dateStr = "${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}";
       final response = await _dio.get(
         '/api/reservations/slots',
@@ -44,6 +47,7 @@ class ApiReservationRepository implements IReservationRepository {
     }
   }
 
+  /// Cria reserva
   @override
   Future<bool> createReservation(String userId, String courtId, String date, String startTime, int durationMinutes) async {
     try {
@@ -66,6 +70,7 @@ class ApiReservationRepository implements IReservationRepository {
     }
   }
 
+  /// Busca reservas do usuário
   @override
   Future<List<Reservation>> getUserReservations(String userId) async {
     try {

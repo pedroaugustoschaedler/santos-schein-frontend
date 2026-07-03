@@ -79,6 +79,7 @@ class _AgendaScreenState extends State<AgendaScreen> {
     _loadCourts();
   }
 
+  // Carrega a lista de quadras do servidor
   Future<void> _loadCourts() async {
     setState(() {
       isLoadingCourts = true;
@@ -106,6 +107,7 @@ class _AgendaScreenState extends State<AgendaScreen> {
     }
   }
 
+  // Carrega os horários disponíveis (slots) para a quadra selecionada na semana
   Future<void> _loadSlots() async {
     if (selectedCourtId == null) return;
     setState(() {
@@ -144,6 +146,7 @@ class _AgendaScreenState extends State<AgendaScreen> {
     }
   }
 
+  // Exibe o modal de confirmação de reserva
   void _showReservationDialog(TimeSlot slot, Map<String, String> dayData) {
     final allEndTimes = [
       "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", 
@@ -246,6 +249,7 @@ class _AgendaScreenState extends State<AgendaScreen> {
                 final durationMinutes = endMinutes - startMinutes;
 
                 try {
+                  // Cria reserva utilizando o repositório
                   final success = await repository.createReservation(
                     widget.userId,
                     selectedCourtId!,
